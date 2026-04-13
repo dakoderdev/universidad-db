@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'SYSACAD - Autogestión Alumnos | UTN FRT',
-  description: 'Sistema Académico de Autogestión para Alumnos - Universidad Tecnológica Nacional, Facultad Regional Tucumán',
+  title: 'Autogestión Alumnos | UniversidadDB',
+  description: 'Sistema Académico de Autogestión para Alumnos',
   generator: 'v0.app',
   icons: {
     icon: [
