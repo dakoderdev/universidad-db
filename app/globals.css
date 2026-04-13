@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --terracota: rgb(197, 153, 111);
   --yellow-700: rgb(148, 119, 64);
   --turquoise: #8A9287;
 }
@@ -20,6 +21,7 @@
   --color-destructive-foreground: oklch(0.95 0.005 250);
 
   --color-yellow-700: var(--yellow-700);
+  --color-terracota: var(--terracota);
   --color-turquoise: var(--turquoise);
 }
 
@@ -29,5 +31,16 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  /* For Firefox */
+  .scrollbar-custom {
+    scrollbar-width: thin;
   }
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Mail, FileText, ClipboardList, BookOpen, CalendarDays, ChevronRight, GraduationCap } from "lucide-react";
+import { Mail, FileText, ClipboardList, BookOpen, CalendarDays, BookCheck, GraduationCap } from "lucide-react";
 import SidebarMenu from "../components/SidebarMenu";
 
 const quickActions = [
@@ -11,7 +11,7 @@ const quickActions = [
   { title: "Descargar certificados", desc: "Certificado de alumno regular y más", href: "#certificados", icon: FileText },
   { title: "Estado académico", desc: "Consultá tu situación académica", href: "#estado", icon: GraduationCap },
   { title: "Exámenes", desc: "Ver calendario y resultados", href: "#examenes", icon: BookOpen },
-  { title: "Notas de parciales", desc: "Consultá tus notas y encuestas", href: "#cursado", icon: ChevronRight },
+  { title: "Notas de parciales", desc: "Consultá tus notas y encuestas", href: "#cursado", icon: BookCheck },
 ];
 
 export default function StudentPortal() {
@@ -31,21 +31,24 @@ export default function StudentPortal() {
           </header>
 
           {/* Announcements */}
-          <section className="mb-10">
+          <section className="pb-6 mb-4 border-b border-white/30">
             <h2 className="mb-4 text-lg font-semibold text-foreground">Avisos importantes</h2>
             <div className="grid md:grid-cols-2 gap-2">
-              <div className="rounded-2xl border bg-yellow-700 p-5 text-background/60">
+              <div className="rounded-2xl bg-terracota p-5 pb-7 text-background/60">
                 <div className="mb-3 flex items-start justify-between gap-4">
                   <h3 className="font-semibold text-background/75">Inscripción 1er Cuatrimestre 2026</h3>
-                  <span className="text-xs">Marzo 2026</span>
+                  <span className="text-xs text-nowrap">Marzo 2026</span>
                 </div>
                 <p className="text-sm leading-relaxed">
                   Inscripción a todas las especialidades de grado del 1er cuatrimestre disponible a partir del <strong className="text-background/75">lunes 23 de marzo</strong>.
                 </p>
               </div>
 
-              <div className="rounded-2xl border bg-turquoise text-background/75 p-5">
-                <h3 className="mb-3 font-semibold">Certificados disponibles</h3>
+              <div className="rounded-2xl bg-turquoise text-background/60 p-5 pb-7">
+                <div className="mb-3 flex items-start justify-between gap-4">
+                  <h3 className="font-semibold text-background/75">Certificados disponibles</h3>
+                  <span className="text-xs text-nowrap">Ahora</span>
+                </div>
                 <p className="text-sm leading-relaxed">
                   Ya podés descargar tu <strong>Certificado de Alumno Regular</strong> y <strong>Actividad Académica </strong>con validación por código QR desde el menú &quot;Descarga de certificados&quot;.
                 </p>
@@ -54,17 +57,18 @@ export default function StudentPortal() {
           </section>
 
           {/* Quick Actions */}
-          <section className="mb-10">
-            <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+          <section className="@container pb-6 mb-4 border-b border-white/30">
+            <h2 className="mb-4 text-lg font-semibold text-foreground">Acciones Recomendadas</h2>
+            <div className="grid gap-2 @xl:grid-cols-2 @min-[50rem]:grid-cols-3">
               {quickActions.map((action) => {
                 const Icon = action.icon;
                 return (
-                  <Link key={action.title} href={action.href} className={`group flex flex-col min-h-32 gap-3 rounded-2xl border bg-neutral-900/20 p-5 transition-all duration-400 hover:shadow-md border-white/10 hover:bg-white/90 hover:border-transparent text-foreground hover:text-background/75`}>
+                  <Link key={action.title} href={action.href} className="group flex flex-col min-h-32 gap-2 rounded-2xl bg-neutral-900/30 p-4 transition-all duration-300 min-h-38 hover:-translate-y-0.5 hover:bg-yellow-700">
                     <div className="flex items-center gap-3">
-                      <Icon className="size-5 text-foreground/60 group-hover:text-inherit transition-colors duration-400" />
-                      <h3 className="font-medium transition-colors duration-400">{action.title}</h3>
+                      <Icon className="size-5 text-foreground/70 transition-colors duration-300 group-hover:text-background/85" />
+                      <h3 className="font-medium text-lg text-foreground transition-colors duration-300 group-hover:text-background/85">{action.title}</h3>
                     </div>
-                    <p className="text-sm text-foreground/60 group-hover:text-background/60 transition-colors duration-400">{action.desc}</p>
+                    <p className="text-[0.9rem] text-pretty text-foreground/60 group-hover:text-background/70 leading-relaxed  transition-colors duration-300">{action.desc}</p>
                   </Link>
                 );
               })}
@@ -72,7 +76,7 @@ export default function StudentPortal() {
           </section>
 
           {/* Contact */}
-          <section className="mb-10">
+          <section className="pb-10">
             <h2 className="mb-4 text-lg font-semibold text-foreground">Contacto y ayuda</h2>
             <div className="grid gap-2 sm:grid-cols-2">
               <div className="rounded-2xl border border-white/10 bg-neutral-900/20 p-5">
