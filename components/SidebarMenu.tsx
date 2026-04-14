@@ -63,7 +63,7 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
 
       {menuOpen && <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMenuOpen(false)} />}
 
-      <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-100 text-background transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2"}`}>
+      <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-100 text-background transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2 lg:left-0"}`}>
         <div className="flex items-center gap-3 border-b border-background/20 px-6 py-3">
           <div className="flex size-10 items-center justify-center rounded-2xl bg-yellow-700 text-neutral-100">
             <GraduationCap className="size-5" />

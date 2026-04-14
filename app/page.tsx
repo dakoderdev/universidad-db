@@ -26,7 +26,7 @@ export default function StudentPortal() {
         <div className="mx-auto max-w-5xl px-6 py-8 lg:px-8 lg:py-12">
           {/* Header */}
           <header className="mb-8 pt-12 lg:pt-0">
-            <h1 className="text-4xl font-semibold tracking-tighter text-foreground lg:text-6xl text-balance">UniversidadDB</h1>
+            <h1 className="text-5xl font-semibold tracking-tighter text-foreground lg:text-6xl text-balance">UniversidadDB</h1>
             <p className="text-foreground/60">Sistema Académico</p>
           </header>
 
@@ -83,13 +83,13 @@ export default function StudentPortal() {
                 <h3 className="font-semibold text-card-white">Consultas académicas</h3>
                 <p className="mt-1 text-sm text-foreground/60">Para cuestiones relacionadas con cursado y exámenes.</p>
                 <div className="mt-4 space-y-2">
-                  <a href="mailto:dptoalumnos@frt.utn.edu.ar" className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm hover:bg-neutral-900/60 transition-colors">
+                  <a href="mailto:dptoalumnos@unidb.edu.ar" className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm hover:bg-neutral-900/60 transition-colors">
                     <Mail className="size-4 text-foreground/60" />
-                    dptoalumnos@frt.utn.edu.ar
+                    dptoalumnos@unidb.edu.ar
                   </a>
-                  <a href="mailto:legajosyactas@frt.utn.edu.ar" className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm hover:bg-neutral-900/60 transition-colors">
+                  <a href="mailto:legajosyactas@unidb.edu.ar" className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm hover:bg-neutral-900/60 transition-colors">
                     <Mail className="size-4 text-foreground/60" />
-                    legajosyactas@frt.utn.edu.ar
+                    legajosyactas@unidb.edu.ar
                   </a>
                 </div>
               </div>
@@ -97,9 +97,9 @@ export default function StudentPortal() {
                 <h3 className="font-semibold text-card-white">Resetear contraseña</h3>
                 <p className="mt-1 text-sm text-foreground/60">Enviá tu nombre, legajo y/o DNI para recuperar acceso.</p>
                 <div className="mt-4">
-                  <a href="mailto:dptoalumnos@frt.utn.edu.ar" className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm hover:bg-neutral-900/60 transition-colors">
+                  <a href="mailto:dptoalumnos@unidb.edu.ar" className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 text-sm hover:bg-neutral-900/60 transition-colors">
                     <Mail className="size-4 text-foreground/60" />
-                    dptoalumnos@frt.utn.edu.ar
+                    dptoalumnos@unidb.edu.ar
                   </a>
                 </div>
               </div>
@@ -109,7 +109,7 @@ export default function StudentPortal() {
           {/* Footer */}
           <footer className="border-t border-white/10 pt-6 text-center text-sm text-foreground/60">
             <p>Ciclo Lectivo 2026 — Dirección de TIC&apos;s</p>
-            <p className="mt-1">Universidad Tecnológica Nacional — Facultad Regional Tucumán</p>
+            <p className="mt-1">UniversidadDB</p>
           </footer>
         </div>
       </main>
