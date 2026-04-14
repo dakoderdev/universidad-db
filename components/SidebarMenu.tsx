@@ -63,13 +63,13 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
 
       {menuOpen && <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMenuOpen(false)} />}
 
-      <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-100 text-background transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2 lg:left-0"}`}>
-        <div className="flex items-center gap-3 border-b border-background/20 px-6 py-3">
+      <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-950/50 border border-foreground/10 text-foreground transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2 lg:left-0"}`}>
+        <div className="flex items-center gap-3 border-b border-foreground/20 px-6 py-3">
           <div className="flex size-10 items-center justify-center rounded-2xl bg-yellow-700 text-neutral-100">
             <GraduationCap className="size-5" />
           </div>
           <div>
-            <p className="text-sm text-background/60">Bienvenido/a</p>
+            <p className="text-sm text-foreground/60">Bienvenido/a</p>
             <p className="font-medium">Konevky, David</p>
           </div>
         </div>
@@ -77,13 +77,13 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
         <nav className="flex-1 overflow-y-auto px-4 py-3 scrollbar-custom">
           {navGroups.map((group) => (
             <div key={group.label} className="mb-6">
-              <p className="mb-2 px-2 text-xs font-medium uppercase tracking-wider text-background/50">{group.label}</p>
+              <p className="mb-2 px-2 text-xs font-medium uppercase tracking-wider text-foreground/50">{group.label}</p>
               <ul className="space-y-1">
                 {group.items.map((item) => {
                   const Icon = item.icon;
                   return (
                     <li key={item.name}>
-                      <Link href={item.href} onClick={() => setMenuOpen(false)} className="flex items-center rounded-xl px-3 py-2 text-sm text-background/80 transition-colors hover:bg-yellow-700 hover:text-neutral-100">
+                      <Link href={item.href} onClick={() => setMenuOpen(false)} className="flex items-center rounded-xl px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-yellow-700 hover:text-neutral-100">
                         <Icon className="size-4 mr-2" />
                         {item.name}
                       </Link>
@@ -95,8 +95,8 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
           ))}
         </nav>
 
-        <div className="border-t border-background/20 px-4 py-3">
-          <Link href="#logout" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-background/80 transition-colors hover:bg-destructive/20 hover:text-destructive">
+        <div className="border-t border-foreground/20 px-4 py-3">
+          <Link href="#logout" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-destructive/20 hover:text-destructive">
             <LogOut className="size-4" />
             Cerrar sesión
           </Link>

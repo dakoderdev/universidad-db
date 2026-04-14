@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -11,7 +10,7 @@
 
 @theme inline {
   --font-sans: "Geist", "Geist Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-basic: "Basic", "Basic Fallback";
 
   --color-background: oklch(0.1 0.015 250);
   --color-foreground: white;
@@ -42,5 +41,11 @@
   /* For Firefox */
   .scrollbar-custom {
     scrollbar-width: thin;
+  }
+
+  .fondo {
+    background-image: linear-gradient(oklch(0% 0 0 / 0.65), oklch(0% 0 0 / 0.65)), url('/fondo.jpg');
+    background-size: cover;
+    background-position: center;
   }
 }

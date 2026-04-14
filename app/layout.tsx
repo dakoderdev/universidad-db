@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Basic } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _basic = Basic({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Autogestión Alumnos | UniversidadDB',
@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="bg-background">
-      <body className="font-sans antialiased">
+      <body className="font-basic antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
