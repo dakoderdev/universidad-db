@@ -2,16 +2,16 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Mail, FileText, ClipboardList, BookOpen, CalendarDays, BookCheck, GraduationCap } from "lucide-react";
+import { Mail, FileText, ClipboardList, BookOpen, CalendarDays, BookCheck, GraduationCap, RectangleEllipsis } from "lucide-react";
 import SidebarMenu from "../../components/SidebarMenu";
 
 const quickActions = [
-  { title: "Inscripción a cursado", desc: "Inscribite a las materias del cuatrimestre", href: "#inscripcion-cursado", icon: ClipboardList },
-  { title: "Inscripción a examen", desc: "Anotate para rendir finales", href: "#inscripcion-examen", icon: CalendarDays },
-  { title: "Descargar certificados", desc: "Certificado de alumno regular y más", href: "#certificados", icon: FileText },
   { title: "Estado académico", desc: "Consultá tu situación académica", href: "#estado", icon: GraduationCap },
   { title: "Exámenes", desc: "Ver calendario y resultados", href: "#examenes", icon: BookOpen },
   { title: "Notas de parciales", desc: "Consultá tus notas y encuestas", href: "#cursado", icon: BookCheck },
+  { title: "Descargar certificados", desc: "Certificado de alumno regular y más", href: "#certificados", icon: FileText },
+  { title: "Inscripción a cursado", desc: "Inscribite a las materias del cuatrimestre", href: "#inscripcion-cursado", icon: ClipboardList, currentlyActive: 0 },
+  { title: "Inscripción a examen", desc: "Anotate para rendir finales", href: "#inscripcion-examen", icon: CalendarDays, currentlyActive: 0 },
 ];
 
 export default function StudentPortal() {
@@ -32,7 +32,7 @@ export default function StudentPortal() {
 
           {/* Announcements */}
           <section className="pb-6 mb-4 border-b border-white/30">
-            <h2 className="mb-4 text-lg font-semibold text-background">Avisos importantes</h2>
+            <h2 className="mb-4 text-lg font-semibold text-foreground">Avisos importantes</h2>
             <div className="grid md:grid-cols-2 gap-2">
               <div className="rounded-2xl bg-terracota p-5 pb-7 text-background/60">
                 <div className="mb-3 flex items-start justify-between gap-4">
@@ -63,12 +63,19 @@ export default function StudentPortal() {
               {quickActions.map((action) => {
                 const Icon = action.icon;
                 return (
-                  <Link key={action.title} href={action.href} className="group flex flex-col min-h-32 gap-2 rounded-2xl bg-neutral-950/30 border border-foreground/10 p-4 transition-all duration-300 min-h-38 hover:-translate-y-0.5 hover:bg-yellow-700/80">
+                  <Link key={action.title} href={action.href} className={`${action.currentlyActive === 0 ? "opacity-60 cursor-default" : "hover:-translate-y-0.5 hover:bg-yellow-700/80"} group flex flex-col min-h-32 gap-2 rounded-2xl bg-neutral-950/30 border border-foreground/10 p-4 transition-all duration-300 min-h-38` }>
                     <div className="flex items-center gap-3">
                       <Icon className="size-5 text-foreground/70 transition-colors duration-300 group-hover:text-foreground/85" />
                       <h3 className="font-medium text-lg text-foreground transition-colors duration-300 group-hover:text-foreground/85">{action.title}</h3>
                     </div>
-                    <p className="text-[0.9rem] text-pretty text-foreground/60 group-hover:text-foreground/70 leading-relaxed  transition-colors duration-300">{action.desc}</p>
+                    <div className="flex flex-col gap-2 justify-between h-full">
+                      <p className="text-[0.9rem] text-pretty text-foreground/60 group-hover:text-foreground/70 leading-relaxed  transition-colors duration-300">{action.desc}</p>
+                    {action.currentlyActive === 0 && (
+                      <span className="inline-flex self-end items-center gap-1 text-xs font-medium text-foreground/60">
+                        No hay ninguna/o para inscribirte actualmente
+                      </span>
+                    )}
+                    </div>
                   </Link>
                 );
               })}

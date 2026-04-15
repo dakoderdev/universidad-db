@@ -8,6 +8,7 @@ type NavItem = {
   name: string;
   href: string;
   icon: React.ComponentType<{ className?: string }>;
+  disabled?: boolean;
 };
 
 type NavGroup = {
@@ -36,8 +37,8 @@ const navGroups: NavGroup[] = [
     label: "Trámites",
     items: [
       { name: "Descargar certificados", href: "#certificados", icon: FileText },
-      { name: "Inscripción a examen", href: "#inscripcion-examen", icon: CalendarDays },
-      { name: "Inscripción a cursado", href: "#inscripcion-cursado", icon: ClipboardList },
+      { name: "Inscripción a examen", href: "#inscripcion-examen", icon: CalendarDays, disabled:true },
+      { name: "Inscripción a cursado", href: "#inscripcion-cursado", icon: ClipboardList, disabled: true },
     ],
   },
   {
@@ -83,7 +84,7 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
                   const Icon = item.icon;
                   return (
                     <li key={item.name}>
-                      <Link href={item.href} onClick={() => setMenuOpen(false)} className="flex items-center rounded-xl px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-yellow-700 hover:text-neutral-100">
+                      <Link href={item.href} onClick={() => setMenuOpen(false)} className={`${item.disabled === true ? "opacity-50 cursor-default" : "hover:bg-yellow-700 hover:text-neutral-100"} flex items-center rounded-xl px-3 py-2 text-sm text-foreground/80 transition-colors`}>
                         <Icon className="size-4 mr-2" />
                         {item.name}
                       </Link>
