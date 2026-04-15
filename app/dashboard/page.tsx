@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, FileText, ClipboardList, BookOpen, CalendarDays, BookCheck, GraduationCap, RectangleEllipsis } from "lucide-react";
 import SidebarMenu from "../../components/SidebarMenu";
+import { useRouter } from "next/navigation";
 
 const quickActions = [
   { title: "Estado académico", desc: "Consultá tu situación académica", href: "#estado", icon: GraduationCap },
@@ -16,6 +17,22 @@ const quickActions = [
 
 export default function StudentPortal() {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const router = useRouter();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const session = localStorage.getItem("session");
+
+    if (!session) {
+      router.replace("/");
+      return;
+    }
+
+    setLoading(false);
+  }, []);
+
+  if (loading) return null;
 
   return (
     <div className="min-h-screen">

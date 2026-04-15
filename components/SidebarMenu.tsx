@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
+import { useRouter } from "next/navigation";
 import { Menu, X, LogOut, GraduationCap, BookOpen, BookCheck, Megaphone, GitCompare, FileText, ClipboardList, CalendarDays, RectangleEllipsis } from "lucide-react";
 
 type NavItem = {
@@ -56,6 +57,12 @@ type SidebarMenuProps = {
 };
 
 export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps) {
+  const router = useRouter();
+
+  const handleLogout = () => {
+    localStorage.removeItem("session");
+    router.replace("/");
+  };
   return (
     <>
       <button onClick={() => setMenuOpen(!menuOpen)} className={`fixed top-3 ${menuOpen ? "left-[calc(100%-0.75rem)] -translate-x-full min-[400px]:translate-x-0  min-[400px]:left-76" : "left-3"} z-50 flex size-10 items-center justify-center rounded-lg bg-yellow-700 text-background lg:hidden transition-all duration-300`} aria-label="Toggle menu">
@@ -64,7 +71,7 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
 
       {menuOpen && <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMenuOpen(false)} />}
 
-      <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-950/50 border border-foreground/10 text-foreground transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2 lg:left-0"}`}>
+      <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-950 border border-foreground/10 text-foreground transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2 lg:left-0"}`}>
         <div className="flex items-center gap-3 border-b border-foreground/20 px-6 py-3">
           <div className="flex size-10 items-center justify-center rounded-2xl bg-yellow-700 text-neutral-100">
             <GraduationCap className="size-5" />
@@ -97,10 +104,10 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
         </nav>
 
         <div className="border-t border-foreground/20 px-4 py-3">
-          <Link href="#logout" className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-destructive/20 hover:text-destructive">
+          <button onClick={handleLogout} className="cursor-pointer flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-destructive/20 hover:text-destructive">
             <LogOut className="size-4" />
             Cerrar sesión
-          </Link>
+          </button>
         </div>
       </aside>
     </>
