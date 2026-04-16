@@ -21,7 +21,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Académico",
     items: [
-      { name: "Materias del plan", href: "#materias", icon: FileText },
+      { name: "Materias del plan", href: "dashboard/materias", icon: FileText },
       { name: "Estado académico", href: "#estado", icon: GraduationCap },
       { name: "Exámenes", href: "#examenes", icon: BookOpen },
       { name: "Cursado y parciales", href: "#cursado", icon: BookCheck },
@@ -72,7 +72,7 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
       {menuOpen && <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMenuOpen(false)} />}
 
       <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-950 border border-foreground/10 text-foreground transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2 lg:left-0"}`}>
-        <div className="flex items-center gap-3 border-b border-foreground/20 px-6 py-3">
+        <Link href="/dashboard" className="flex items-center gap-3 border-b border-foreground/20 px-6 py-3">
           <div className="flex size-10 items-center justify-center rounded-2xl bg-yellow-700 text-neutral-100">
             <GraduationCap className="size-5" />
           </div>
@@ -80,7 +80,7 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
             <p className="text-sm text-foreground/60">Bienvenido/a</p>
             <p className="font-medium">Konevky, David</p>
           </div>
-        </div>
+        </Link>
 
         <nav className="flex-1 overflow-y-auto px-4 py-3 scrollbar-custom">
           {navGroups.map((group) => (
@@ -104,7 +104,7 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
         </nav>
 
         <div className="border-t border-foreground/20 px-4 py-3">
-          <button onClick={handleLogout} className="cursor-pointer flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-destructive/20 hover:text-destructive">
+          <button onClick={handleLogout} className="cursor-pointer w-full flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-foreground/80 transition-colors hover:bg-destructive/20 hover:text-destructive">
             <LogOut className="size-4" />
             Cerrar sesión
           </button>

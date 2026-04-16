@@ -16,30 +16,9 @@ const quickActions = [
 ];
 
 export default function StudentPortal() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const router = useRouter();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const session = localStorage.getItem("session");
-
-    if (!session) {
-      router.replace("/");
-      return;
-    }
-
-    setLoading(false);
-  }, []);
-
-  if (loading) return null;
-
   return (
     <div className="min-h-screen">
-      <SidebarMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-
-      {/* Main Content */}
-      <main className="lg:pl-72">
+      <main>
         <div className="mx-auto max-w-5xl px-6 py-8 lg:px-8 lg:py-12">
           {/* Header */}
           <header className="mb-8 pt-12 lg:pt-0">

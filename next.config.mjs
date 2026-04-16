@@ -6,6 +6,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  devIndicators: {
+    position: 'top-right',
+  },
+  experimental: {
+    viewTransition: true,
+  },
 }
 
 export default nextConfig
