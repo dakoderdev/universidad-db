@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { Menu, X, LogOut, GraduationCap, BookOpen, BookCheck, Megaphone, GitCompare, FileText, ClipboardList, CalendarDays, RectangleEllipsis } from "lucide-react";
 
 type NavItem = {
@@ -21,31 +21,31 @@ const navGroups: NavGroup[] = [
   {
     label: "Académico",
     items: [
-      { name: "Materias del plan", href: "dashboard/materias", icon: FileText },
-      { name: "Estado académico", href: "#estado", icon: GraduationCap },
-      { name: "Exámenes", href: "#examenes", icon: BookOpen },
-      { name: "Cursado y parciales", href: "#cursado", icon: BookCheck },
+      { name: "Materias del plan", href: "/dashboard/materias", icon: FileText },
+      { name: "Estado académico", href: "/dashboard/estado", icon: GraduationCap },
+      { name: "Exámenes", href: "/dashboard/examenes", icon: BookOpen },
+      { name: "Cursado y parciales", href: "/dashboard/cursado", icon: BookCheck },
     ],
   },
   {
     label: "Correlatividades",
     items: [
-      { name: "Para cursar", href: "#correlatividad-cursado", icon: GitCompare },
-      { name: "Para rendir", href: "#correlatividad-examen", icon: GitCompare },
+      { name: "Para cursar", href: "/dashboard/correlatividad-cursado", icon: GitCompare },
+      { name: "Para rendir", href: "/dashboard/correlatividad-examen", icon: GitCompare },
     ],
   },
   {
     label: "Trámites",
     items: [
-      { name: "Descargar certificados", href: "#certificados", icon: FileText },
-      { name: "Inscripción a examen", href: "#inscripcion-examen", icon: CalendarDays, disabled:true },
+      { name: "Descargar certificados", href: "/dashboard/certificados", icon: FileText },
+      { name: "Inscripción a examen", href: "#inscripcion-examen", icon: CalendarDays, disabled: true },
       { name: "Inscripción a cursado", href: "#inscripcion-cursado", icon: ClipboardList, disabled: true },
     ],
   },
   {
     label: "Cuenta",
     items: [
-      { name: "Avisos", href: "#avisos", icon: Megaphone },
+      { name: "Avisos", href: "/dashboard/avisos", icon: Megaphone },
       { name: "Cambiar contraseña", href: "#password", icon: RectangleEllipsis },
     ],
   },
@@ -58,6 +58,7 @@ type SidebarMenuProps = {
 
 export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps) {
   const router = useRouter();
+  const pathname = usePathname()
 
   const handleLogout = () => {
     localStorage.removeItem("session");
@@ -72,12 +73,12 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
       {menuOpen && <div className="fixed inset-0 z-40 lg:hidden" onClick={() => setMenuOpen(false)} />}
 
       <aside className={`fixed inset-y-0 z-40 flex w-full max-w-72 flex-col m-2 rounded-lg bg-neutral-950 border border-foreground/10 text-foreground transition-transform duration-300 lg:translate-x-0 ${menuOpen ? "translate-x-0 left-0" : "-translate-x-full -left-2 lg:left-0"}`}>
-        <Link href="/dashboard" className="flex items-center gap-3 border-b border-foreground/20 px-6 py-3">
+        <Link href="/dashboard" className="group flex items-center gap-3 border-b border-foreground/20 px-6 py-3">
           <div className="flex size-10 items-center justify-center rounded-2xl bg-yellow-700 text-neutral-100">
-            <GraduationCap className="size-5" />
+            <GraduationCap className="size-5 group-hover:scale-105 transition-transform" />
           </div>
           <div>
-            <p className="text-sm text-foreground/60">Bienvenido/a</p>
+            <p className="text-sm text-foreground/60">{ pathname === "/dashboard" ? "Bienvenido/a" : "Volver a Inicio"}</p>
             <p className="font-medium">Konevky, David</p>
           </div>
         </Link>
