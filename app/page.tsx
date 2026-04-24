@@ -66,7 +66,7 @@ export default function StudentPortal() {
 
         <Input label="Contraseña" id="password" name="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
 
-        <button type="submit" className="w-fit self-end px-6 py-2 bg-yellow-700/60 mt-4 rounded-full">
+        <button type="submit" className="w-fit cursor-pointer self-end px-6 py-2 bg-yellow-700/60 mt-4 rounded-full">
           Ingresar
         </button>
       </form>

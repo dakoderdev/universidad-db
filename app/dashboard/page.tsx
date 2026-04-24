@@ -1,18 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { Mail, FileText, ClipboardList, BookOpen, CalendarDays, BookCheck, GraduationCap, RectangleEllipsis } from "lucide-react";
-import SidebarMenu from "../../components/SidebarMenu";
-import { useRouter } from "next/navigation";
 
 const quickActions = [
-  { title: "Estado académico", desc: "Consultá tu situación académica", href: "#estado", icon: GraduationCap },
-  { title: "Exámenes", desc: "Ver calendario y resultados", href: "#examenes", icon: BookOpen },
-  { title: "Notas de parciales", desc: "Consultá tus notas y encuestas", href: "#cursado", icon: BookCheck },
-  { title: "Descargar certificados", desc: "Certificado de alumno regular y más", href: "#certificados", icon: FileText },
-  { title: "Inscripción a cursado", desc: "Inscribite a las materias del cuatrimestre", href: "#inscripcion-cursado", icon: ClipboardList, currentlyActive: 0 },
-  { title: "Inscripción a examen", desc: "Anotate para rendir finales", href: "#inscripcion-examen", icon: CalendarDays, currentlyActive: 0 },
+  { title: "Estado académico", desc: "Consultá tu situación académica", href: "/dashboard/estado", icon: GraduationCap },
+  { title: "Exámenes", desc: "Ver calendario y resultados", href: "/dashboard/examenes", icon: BookOpen },
+  { title: "Notas de parciales", desc: "Consultá tus notas y encuestas", href: "/dashboard/cursado", icon: BookCheck },
+  { title: "Descargar certificados", desc: "Certificado de alumno regular y más", href: "/dashboard/certificados", icon: FileText },
+  { title: "Inscripción a cursado", desc: "Inscribite a las materias del cuatrimestre", href: "/dashboard/inscripcion-cursado", icon: ClipboardList, currentlyActive: 0 },
+  { title: "Inscripción a examen", desc: "Anotate para rendir finales", href: "/dashboard/inscripcion-examen", icon: CalendarDays, currentlyActive: 0 },
 ];
 
 export default function StudentPortal() {

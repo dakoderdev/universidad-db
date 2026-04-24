@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { Menu, X, LogOut, GraduationCap, BookOpen, BookCheck, Megaphone, GitCompare, FileText, ClipboardList, CalendarDays, RectangleEllipsis } from "lucide-react";
+import React from "react";
 
 type NavItem = {
   name: string;
@@ -65,7 +66,7 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
     router.replace("/");
   };
   return (
-    <>
+    <React.Fragment>
       <button onClick={() => setMenuOpen(!menuOpen)} className={`fixed top-3 ${menuOpen ? "left-[calc(100%-0.75rem)] -translate-x-full min-[400px]:translate-x-0  min-[400px]:left-76" : "left-3"} z-50 flex size-10 items-center justify-center rounded-lg bg-yellow-700 text-background lg:hidden transition-all duration-300`} aria-label="Toggle menu">
         {menuOpen ? <X className="size-5" /> : <Menu className="size-5" />}
       </button>
@@ -111,6 +112,6 @@ export default function SidebarMenu({ menuOpen, setMenuOpen }: SidebarMenuProps)
           </button>
         </div>
       </aside>
-    </>
+    </React.Fragment>
   );
 }

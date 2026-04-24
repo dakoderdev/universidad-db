@@ -56,7 +56,7 @@ const tableConfigs: Record<string, TableConfig> = {
         <td className="px-4 py-3">{row.fecha}</td>
         <td className="px-4 py-3 font-medium">{row.materia}</td>
         <td className="px-4 py-3">
-          <span className="rounded-full bg-neutral-500/20 px-3 py-1 text-neutral-400">{row.nota}</span>
+          <span className="rounded-full bg-neutral-500/20 px-3 py-1 text-neutral-100">{row.nota}</span>
         </td>
         <td className="px-4 py-3">{row.especialidad}</td>
         <td className="px-4 py-3">{row.plan}</td>
